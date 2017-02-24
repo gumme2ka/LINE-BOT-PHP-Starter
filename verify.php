@@ -5,10 +5,15 @@
 
 	$headers = array('Authorization: Bearer ' . $access_token);
 
+	$proxy = 'http://fixie:7sVdNrGDjnQB2Dh@velodrome.usefixie.com:80';
+	$proxyauth = 'gumme2ka:tanachai0fang';
+
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt($ch, CURLOPT_PROXY, $proxy);
+	curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
 	$result = curl_exec($ch);
 	curl_close($ch);
 

@@ -1,6 +1,9 @@
 <?php 
 	$access_token = 'IbgSsg+DwS1syPjPqRb1mg7Wu8LJQvkJeaJWLAj9pyXqP1JBCp8bWGwuxcbvyk6Aj7nRt0gfmc1Zp04Oj6sACE1NGhE3QXVVwyDyQwZRFhAIHBTfuAG8twNuB3hZItoSVS3Ja/ZSkHEmhwU2EVy9wgdB04t89/1O/w1cDnyilFU=';
 
+	$proxy = 'http://fixie:7sVdNrGDjnQB2Dh@velodrome.usefixie.com:80';
+	$proxyauth = 'gumme2ka:tanachai0fang';
+
 	// Get POST body content
 	$content = file_get_contents('php://input');
 	// Parse JSON
@@ -37,6 +40,8 @@
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				curl_setopt($ch, CURLOPT_PROXY, $proxy);
+				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
 				$result = curl_exec($ch);
 				curl_close($ch);
 
